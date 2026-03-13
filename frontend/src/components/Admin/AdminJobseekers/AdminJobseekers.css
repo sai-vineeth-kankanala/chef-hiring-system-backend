@@ -1,0 +1,138 @@
+/* Container */
+.admin-container {
+  margin: 1rem auto;
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.758); /* semi-transparent white */
+  backdrop-filter: blur(10px); /* frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  min-height: 70vh;
+}
+
+/* Header */
+.admin-header {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #2d3e50;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Status Messages */
+.admin-status {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.admin-status.loading {
+  color: #2980b9;
+}
+
+.admin-status.error {
+  color: #e74c3c;
+}
+
+/* Table */
+.admin-table {
+  width: 100%;
+  margin-top: 30px;
+  border-spacing: 0 2px;
+  border-collapse: separate;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table .admin-thead {
+  background: linear-gradient(to right, #2980b9, #3498db);
+  border-radius: 2rem;
+}
+
+.admin-table .admin-th {
+  padding: 20px 25px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.admin-table .admin-td {
+  padding: 18px 25px;
+  font-size: 14px;
+  color: #2f3640;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.admin-table .admin-td:last-child {
+  text-align: center;
+}
+
+.admin-table .admin-tbody .admin-tr {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-table .admin-tbody .admin-tr:hover {
+  background-color: #f1f6f7;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Action Buttons */
+.admin-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #fff;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.admin-button svg {
+  margin-right: 8px;
+}
+
+.admin-button.edit {
+  border-color: #2980b9;
+  color: #2980b9;
+}
+
+.admin-button.edit:hover {
+  background-color: #2980b9;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.admin-button.delete {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.admin-button.delete:hover {
+  background-color: #e74c3c;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.admin-button:active {
+  transform: scale(0.98);
+}

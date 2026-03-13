@@ -1,0 +1,257 @@
+.jobopenings-container {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 2rem 1rem;
+  font-family: "Segoe UI", sans-serif;
+  background: rgba(255, 255, 255, 0.758); /* semi-transparent white */
+  backdrop-filter: blur(10px); /* frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 1rem;
+}
+
+.jobopenings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.jobopenings-title {
+  color: #008080;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox layout for job cards */
+.jobopenings-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.jobopenings-card {
+  flex: 1 1 calc(33.333% - 1rem); /* 3 cards per row */
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.jobopenings-card:hover {
+  transform: translateY(-4px);
+}
+
+.jobopenings-job-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.jobopenings-job-location,
+.jobopenings-job-salary,
+.jobopenings-job-type {
+  margin: 0.4rem 0;
+  color: #555;
+}
+
+.jobopenings-posted {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.jobopenings-apply-btn {
+  margin-top: 1rem;
+  background-color: #008080;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.jobopenings-apply-btn:hover {
+  background-color: #006666;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .jobopenings-card {
+    flex: 1 1 calc(50% - 1rem); /* 2 cards per row on medium screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .jobopenings-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .jobopenings-card {
+    flex: 1 1 100%; /* 1 card per row on small screens */
+  }
+}
+
+.jobopenings-title {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.jobopenings-left {
+  flex: 1;
+}
+
+.jobopenings-search-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* From Uiverse.io by Harsha2lucky */
+.search-input {
+  color: black;
+  font: 1em/1.5 Hind, sans-serif;
+}
+
+.search-form,
+.search-input,
+.search-caret {
+  margin: auto;
+}
+
+.search-form {
+  position: relative;
+  top: 1rem;
+  width: 100%;
+  max-width: 17em;
+}
+
+.search-input,
+.search-caret {
+  display: block;
+  transition: all calc(1s * 0.5) linear;
+}
+
+.search-input {
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.25em inset;
+  caret-color: #255ff4;
+  width: 2em;
+  height: 2em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.search-input:focus,
+.search-input:valid {
+  background: powderblue;
+  border-radius: 0.25em;
+  box-shadow: none;
+  padding: 0.75em 1em;
+  transition-duration: calc(1s * 0.25);
+  transition-delay: calc(1s * 0.25);
+  width: 100%;
+  height: 3em;
+}
+
+.search-input:focus {
+  animation: showCaret 1s steps(1);
+  outline: transparent;
+}
+
+.search-input:focus + .search-caret,
+.search-input:valid + .search-caret {
+  animation: handleToCaret 1s linear;
+  background: transparent;
+  width: 1px;
+  height: 1.5em;
+  transform: translate(0, -1em) rotate(-180deg) translate(7.5em, -0.25em);
+}
+
+.search-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.search-label {
+  color: #e3e4e8;
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.search-caret {
+  background: black;
+  border-radius: 0 0 0.125em 0.125em;
+  margin-bottom: -0.6em;
+  width: 0.25em;
+  height: 1em;
+  transform: translate(0, -1em) rotate(-45deg) translate(0, 0.875em);
+  transform-origin: 50% 0;
+}
+
+/* Animations */
+@keyframes showCaret {
+  from {
+    caret-color: transparent;
+  }
+
+  to {
+    caret-color: #255ff4;
+  }
+}
+
+@keyframes handleToCaret {
+  from {
+    background: currentColor;
+    width: 0.25em;
+    height: 1em;
+    transform: translate(0, -1em) rotate(-45deg) translate(0, 0.875em);
+  }
+
+  25% {
+    background: currentColor;
+    width: 0.25em;
+    height: 1em;
+    transform: translate(0, -1em) rotate(-180deg) translate(0, 0.875em);
+  }
+
+  50%,
+  62.5% {
+    background: #255ff4;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0, -1em) rotate(-180deg) translate(7.5em, 2.5em);
+  }
+
+  75%,
+  99% {
+    background: #255ff4;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0, -1em) rotate(-180deg) translate(7.5em, -0.25em);
+  }
+
+  87.5% {
+    background: #255ff4;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0, -1em) rotate(-180deg) translate(7.5em, 0.125em);
+  }
+
+  to {
+    background: transparent;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0, -1em) rotate(-180deg) translate(7.5em, -0.25em);
+  }
+}

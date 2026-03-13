@@ -1,0 +1,119 @@
+.Login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.Login-container {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  height: 90vh;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.Login-banner {
+  flex: 1;
+  overflow: hidden;
+}
+
+.Login-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.Login-form {
+  flex: 1;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.Login-heading {
+  font-size: 26px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.Login-input,
+.Login-role-select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.Login-input:focus,
+.Login-role-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  background-color: #fff;
+  outline: none;
+}
+
+.Login-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #007bff, #00bfff);
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.Login-button:hover {
+  background: linear-gradient(135deg, #0062cc, #00aaff);
+  transform: translateY(-1.5px);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .Login-container {
+    flex-direction: column;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .Login-banner {
+    display: none;
+  }
+
+  .Login-form {
+    padding: 30px 20px;
+    width: 100%;
+  }
+
+  .Login-heading {
+    font-size: 22px;
+  }
+
+  .Login-input,
+  .Login-role-select {
+    font-size: 13px;
+    padding: 9px 11px;
+  }
+
+  .Login-button {
+    font-size: 14px;
+  }
+}

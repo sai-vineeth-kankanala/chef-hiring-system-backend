@@ -1,0 +1,116 @@
+.jobseekeredit-wrapper {
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  margin: 1rem;
+}
+
+.jobseekeredit-form {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.jobseekeredit-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.jobseekeredit-input,
+.jobseekeredit-select-half,
+.jobseekeredit-input-half {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.jobseekeredit-input:focus,
+.jobseekeredit-select-half:focus,
+.jobseekeredit-input-half:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+  background-color: #fff;
+  outline: none;
+}
+
+.jobseekeredit-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #007bff, #00bfff);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.jobseekeredit-button:hover {
+  background: linear-gradient(135deg, #0062cc, #00aaff);
+  transform: translateY(-1px);
+}
+
+.jobseekeredit-inline-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.jobseekeredit-select-half,
+.jobseekeredit-input-half {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .jobseekeredit-inline-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .jobseekeredit-form {
+    padding: 20px 16px;
+  }
+
+  .jobseekeredit-heading {
+    font-size: 22px;
+  }
+}
+
+.jobseekeredit-button-cancel-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(
+    135deg,
+    #f55749,
+    #fc908d
+  ); /* light red gradient */
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.jobseekeredit-button-cancel-button:hover {
+  background: linear-gradient(
+    135deg,
+    #e57373,
+    #f8a8a8
+  ); /* slightly darker red on hover */
+  transform: translateY(-1px);
+}

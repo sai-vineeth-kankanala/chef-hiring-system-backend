@@ -1,0 +1,117 @@
+.jobposting-wrapper {
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  margin: 1rem;
+}
+
+.jobposting-form {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.jobposting-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.jobposting-input,
+.jobposting-select-half,
+.jobposting-input-half,
+.jobposting-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.jobposting-input:focus,
+.jobposting-select-half:focus,
+.jobposting-input-half:focus,
+.jobposting-textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+  background-color: #fff;
+  outline: none;
+}
+
+.jobposting-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #007bff, #00bfff);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.jobposting-button:hover {
+  background: linear-gradient(135deg, #0062cc, #00aaff);
+  transform: translateY(-1px);
+}
+
+.jobposting-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.jobposting-inline-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.jobposting-select-half,
+.jobposting-input-half {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .jobposting-inline-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .jobposting-form {
+    padding: 20px 16px;
+  }
+
+  .jobposting-heading {
+    font-size: 22px;
+  }
+}
+
+.jobposting-cancel-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #f55749, #fc908d);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.jobposting-cancel-button:hover {
+  background: linear-gradient(135deg, #e57373, #f8a8a8);
+  transform: translateY(-1px);
+}
