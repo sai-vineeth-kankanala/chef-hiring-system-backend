@@ -6,12 +6,13 @@
 
 Restaurants struggle to find qualified culinary professionals efficiently, and chefs face difficulty discovering job opportunities that match their skills and preferences. Traditional hiring processes are time-consuming and inefficient. This platform automates the matching process and provides a scalable infrastructure for managing chef-restaurant relationships.
 
-## Frontend Console Interface
+## Control Portal & Client Interface
 
-The project includes a standalone HTML-based **Frontend Console** that interfaces directly with the running Node.js REST APIs and MySQL database.
+### Control Portal Portal Dashboard
+![Control Portal Dashboard](screenshots/portal_dashboard.png)
 
-### Frontend Client Console
-![Frontend Client Console](screenshots/portal_dashboard.png)
+### Frontend Client Dashboard
+![React Frontend App](screenshots/frontend_app.png)
 
 ## Architecture Overview
 
