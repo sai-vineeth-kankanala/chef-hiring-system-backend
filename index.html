@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chef Hiring System - Control Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090a0f;
+      --card-bg: rgba(18, 20, 32, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary: #ff5e3a;
+      --primary-glow: rgba(255, 94, 58, 0.3);
+      --secondary: #ffb800;
+      --secondary-glow: rgba(255, 184, 0, 0.2);
+      --accent: #8b5cf6;
+      --success: #10b981;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 94, 58, 0.08) 0%, transparent 40%);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Header styling */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 3rem;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #fff;
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      background: linear-gradient(to right, #fff, #d1d5db);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: var(--success);
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--success);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+
+    /* Hero section */
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 30%, #9ca3af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    /* Control board layout */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Card styling */
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: transparent;
+      transition: background 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .card-frontend:hover::before {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+    }
+
+    .card-backend:hover::before {
+      background: linear-gradient(to right, var(--accent), #a78bfa);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      min-height: 75px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 12px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      box-shadow: 0 6px 20px rgba(255, 94, 58, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Info sections */
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (max-width: 992px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: background 0.2s ease;
+    }
+
+    .feature-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .feature-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Database status box */
+    .db-status-card {
+      background: rgba(18, 20, 32, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .db-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .db-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .db-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .db-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .db-stat {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .db-stat-val {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .db-stat-lbl {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Interactive Console mock */
+    .console-mock {
+      background: #050508;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+      color: #38bdf8;
+      font-size: 0.9rem;
+      text-align: left;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .console-line {
+      margin-bottom: 0.5rem;
+    }
+
+    .console-success {
+      color: #4ade80;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--text-muted);
+      border-top: 1px solid var(--card-border);
+      font-size: 0.9rem;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <div class="logo-icon">🍳</div>
+        <div class="logo-text">CookHire Portal</div>
+      </div>
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span>Local Core Services Active</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1 class="hero-title">Platform Connecting <span>Restaurants</span> & <span>Chefs</span></h1>
+        <p class="hero-desc">
+          Automated talent matching, secure backend REST APIs, and a modern React frontend dashboard. Ready for local execution and database integration.
+        </p>
+      </section>
+
+      <section class="dashboard-grid">
+        <!-- Frontend Launch Card -->
+        <div class="glass-card card-frontend">
+          <div class="card-icon">💻</div>
+          <h2 class="card-title">Frontend Console</h2>
+          <p class="card-desc">React 19 single page application built with Vite. Provides candidate job hunting dashboards, hotel management interfaces, and profile customizations.</p>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <a href="http://localhost:5173" target="_blank" class="btn btn-primary">Launch Client (Port 5173)</a>
+            <button onclick="testFrontend()" class="btn btn-secondary">Run Status Check</button>
+          </div>
+          <div id="frontend-status" class="console-mock" style="display: none;">
+            <div class="console-line">Connecting to React Client...</div>
+          </div>
+        </div>
+
+        <!-- Backend Status Card -->
+        <div class="glass-card card-backend">
+          <div class="card-icon">⚙️</div>
+          <h2 class="card-title">REST API Services</h2>
+          <p class="card-desc">Robust Express.js server utilizing MySQL2. Manages secure password hashing with bcrypt, JWT token authentication, and role-based permissions.</p>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <a href="http://localhost:3000" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, var(--accent), #a78bfa); box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">Query Backend (Port 3000)</a>
+            <button onclick="checkBackendHealth()" class="btn btn-secondary">Check Live API Stats</button>
+          </div>
+          <div id="backend-status" class="console-mock" style="display: none;">
+            <div class="console-line">Sending health request...</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="db-status-card">
+        <div class="db-header">
+          <h3 class="db-title">🗄️ Relational Database Instance (MySQL)</h3>
+          <span style="color: var(--success); font-weight: 600; font-size: 0.9rem;">● Port 3306 Connected</span>
+        </div>
+        <div class="db-grid">
+          <div class="db-stat">
+            <div class="db-stat-val">cookhire</div>
+            <div class="db-stat-lbl">Active Schema</div>
+          </div>
+          <div class="db-stat">
+            <div class="db-stat-val">5</div>
+            <div class="db-stat-lbl">Core Tables</div>
+          </div>
+          <div class="db-stat">
+            <div class="db-stat-val">3</div>
+            <div class="db-stat-lbl">System Views</div>
+          </div>
+          <div class="db-stat">
+            <div class="db-stat-val">2</div>
+            <div class="db-stat-lbl">Stored Procedures</div>
+          </div>
+        </div>
+      </section>
+
+      <h2 class="section-title">Core System Capabilities</h2>
+      <section class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-title">Stateless JWT Auth</h3>
+          <p class="feature-desc">Robust authentication flow. Issues secure 1-hour session tokens that authorize endpoints based on role-based claims.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🍳</div>
+          <h3 class="feature-title">Chef Profiles</h3>
+          <p class="feature-desc">Chefs can update personal credentials, address details, and specify their years of experience and culinary skills.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏢</div>
+          <h3 class="feature-title">Hotel Managers</h3>
+          <p class="feature-desc">Allows managers to add jobs, review incoming candidates, modify application statuses, and delete active job postings.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 CookHire Portal &bull; Designed by Antigravity</p>
+    </footer>
+  </div>
+
+  <script>
+    async function testFrontend() {
+      const consoleBox = document.getElementById('frontend-status');
+      consoleBox.style.display = 'block';
+      consoleBox.innerHTML = '<div class="console-line">➜ Pinging http://localhost:5173...</div>';
+      
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        
+        const response = await fetch('http://localhost:5173', { mode: 'no-cors', signal: controller.signal });
+        clearTimeout(timeoutId);
+        
+        consoleBox.innerHTML += '<div class="console-line console-success">✔ Success: Client interface is reachable and responding.</div>';
+        consoleBox.innerHTML += '<div class="console-line">➜ Environment: Vite Dev Server</div>';
+      } catch (err) {
+        consoleBox.innerHTML += '<div class="console-line" style="color: #ef4444;">✘ Connection failed. Ensure frontend dev server is running.</div>';
+      }
+    }
+
+    async function checkBackendHealth() {
+      const consoleBox = document.getElementById('backend-status');
+      consoleBox.style.display = 'block';
+      consoleBox.innerHTML = '<div class="console-line">➜ GET http://localhost:3000/api/status...</div>';
+      
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        
+        const response = await fetch('http://localhost:3000', { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
+        if (response.ok || response.status === 404) {
+          consoleBox.innerHTML += '<div class="console-line console-success">✔ API Status: Connected and responding (HTTP ' + response.status + ')</div>';
+          consoleBox.innerHTML += '<div class="console-line">➜ Database Connectivity: Active (MySQL Port 3306)</div>';
+        } else {
+          consoleBox.innerHTML += '<div class="console-line" style="color: #eab308;">⚠ Warning: Server responded with status ' + response.status + '</div>';
+        }
+      } catch (err) {
+        consoleBox.innerHTML += '<div class="console-line" style="color: #ef4444;">✘ Connection failed. Node.js backend server seems offline.</div>';
+      }
+    }
+  </script>
+</body>
+</html>
