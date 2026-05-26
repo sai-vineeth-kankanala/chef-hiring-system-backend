@@ -11,6 +11,12 @@ Restaurants struggle to find qualified culinary professionals efficiently, and c
 ### User Authentication (Login)
 ![Chef Hire Login](screenshots/login_page_clean.png)
 
+### Homepage Dashboard
+![Homepage Dashboard](screenshots/homepage.png)
+
+### Job Openings & Results
+![Job Openings](screenshots/results_page.png)
+
 ## Architecture Overview
 
 **Tech Stack:**
