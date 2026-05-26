@@ -6,13 +6,10 @@
 
 Restaurants struggle to find qualified culinary professionals efficiently, and chefs face difficulty discovering job opportunities that match their skills and preferences. Traditional hiring processes are time-consuming and inefficient. This platform automates the matching process and provides a scalable infrastructure for managing chef-restaurant relationships.
 
-## Control Portal & Client Interface
+## Application Interface
 
-### Control Portal Portal Dashboard
-![Control Portal Dashboard](screenshots/portal_dashboard.png)
-
-### Frontend Client Dashboard
-![React Frontend App](screenshots/frontend_app.png)
+### User Authentication (Login)
+![Chef Hire Login](screenshots/login_page.png)
 
 ## Architecture Overview
 
