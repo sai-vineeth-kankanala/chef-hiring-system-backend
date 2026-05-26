@@ -12,10 +12,10 @@ Restaurants struggle to find qualified culinary professionals efficiently, and c
 ![Chef Hire Login](screenshots/login_page_clean.png)
 
 ### Homepage Dashboard
-![Homepage Dashboard](screenshots/homepage.png)
+![Homepage Dashboard](screenshots/homepage_clean.png)
 
 ### Job Openings & Results
-![Job Openings](screenshots/results_page.png)
+![Job Openings](screenshots/results_page_clean.png)
 
 ## Architecture Overview
 
