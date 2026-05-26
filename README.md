@@ -9,7 +9,7 @@ Restaurants struggle to find qualified culinary professionals efficiently, and c
 ## Application Interface
 
 ### User Authentication (Login)
-![Chef Hire Login](screenshots/login_page.png)
+![Chef Hire Login](screenshots/login_page_clean.png)
 
 ## Architecture Overview
 
